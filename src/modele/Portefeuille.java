@@ -55,13 +55,12 @@ public class Portefeuille {
     }
 
     public void createFonds(String key, double amount) {
-        // add exception
-        Fonds newFond = new Fonds(amount);
-
+  
         try{
         if (searchFonds(key)!=-1){
              throw new FondExistant(); 
         }
+         Fonds newFond = new Fonds(amount,key);
         this.mapFonds.put(key, newFond);
         }catch(FondExistant erreur){
             System.out.print("SYKE YOU FOOL"); 
@@ -70,9 +69,9 @@ public class Portefeuille {
        
     }
 
-    public void addFondsToInstrument(String key, Fonds fond) {
+    public void addFondsToInstrument(Fonds fond) {
 
-        ArrayList<Fonds> valInstru = searchInstrument(key);
+        ArrayList<Fonds> valInstru = searchInstrument(fond.getKey());
 
         valInstru.add(fond);
     }

@@ -11,8 +11,8 @@ package modele;
  */
 public class CompareFonds extends Fonds implements Comparable<Fonds> {
 
-    public CompareFonds(double _amount) {
-        super(_amount);
+    public CompareFonds(double _amount, String _key) {
+        super(_amount, _key);
     }
 
 
